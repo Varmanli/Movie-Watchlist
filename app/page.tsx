@@ -10,8 +10,17 @@ import { BookmarkProvider } from "@/lib/Watchlist";
 // state
 import { useEffect, useState } from "react";
 
+interface Movie {
+  Poster: string;
+  Title: string;
+  Year: string | number;
+  Type: string;
+  imdbID: string;
+}
+
+
 export default function Home() {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Movie[]>([]);
   const [selectMovie, setSelectMovie] = useState();
   const [inputValue, setInputValue] = useState<string | null>("wellacome");
   const [movieId, setMovieId] = useState<string | null>(null);
@@ -49,7 +58,7 @@ export default function Home() {
         <Header setInputValue={inputValueHandler} value={inputValue} />
         <section className="flex flex-col gap-4 md:flex-row justify-between  p-2 ">
           <ScrollArea
-            className="h-[230px] w-full md:w-fit md:h-[400px] md:basis-2/5"         
+            className="h-[230px] w-full md:w-fit md:h-[400px] md:basis-2/5"
             onClick={() => setTogglediv(false)}
           >
             {data?.map((item) => (

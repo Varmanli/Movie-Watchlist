@@ -10,6 +10,8 @@ type Props = {
   movieIdHandler: any;
 };
 
+
+
 function SearchResult({ image, name, date, type, movieIdHandler, id }: Props) {
   return (
     <div
@@ -19,7 +21,7 @@ function SearchResult({ image, name, date, type, movieIdHandler, id }: Props) {
       <div>
         <Image
           src={image === "N/A" ? defultimage : image}
-          alt='title'
+          alt="title"
           width={100}
           height={200}
           className="rounded-md "
